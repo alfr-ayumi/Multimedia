@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Finance Tracker</h1>
+        <p>Kelola pemasukan dan pengeluaran dengan mudah</p>
+    </header>
+
+    <section class="summary">
+
+        <div class="card total-balance">
+            <span>Total Saldo</span>
+            <h2 id="balance">Rp 0</h2>
+        </div>
+
+        <div class="card income">
+            <span>Total Pemasukan</span>
+            <h3 id="income">Rp 0</h3>
+        </div>
+
+        <div class="card expense">
+            <span>Total Pengeluaran</span>
+            <h3 id="expense">Rp 0</h3>
+        </div>
+
+    </section>
+
+    <section class="history">
+
+        <div class="history-header">
+
+            <h2>Riwayat</h2>
+
+            <!-- Tombol tambah khusus mobile (sejajar judul Riwayat) -->
+            <button id="showFormBtnMobile" class="add-btn add-btn-mobile" type="button">
+                + Tambah
+            </button>
+
+            <div class="history-actions">
+
+                <div class="filter-group">
+
+                    <button class="filter-btn active" data-filter="all">
+                        Semua
+                    </button>
+
+                    <button class="filter-btn" data-filter="income">
+                        Pemasukan
+                    </button>
+
+                    <button class="filter-btn" data-filter="expense">
+                        Pengeluaran
+                    </button>
+
+                </div>
+
+                <!-- Tombol tambah untuk desktop -->
+                <button id="showFormBtn" class="add-btn" type="button">
+                    + Tambah
+                </button>
+
+            </div>
+
+        </div>
+
+        <div id="transactionList"></div>
+
+    </section>
+
+    <section class="form-section hidden" id="formContainer">
+
+        <h2>Tambah Transaksi</h2>
+
+        <form id="transactionForm">
+
+            <div class="form-group">
+                <label>Tanggal</label>
+                <input type="date" id="date" required>
+            </div>
+
+            <div class="form-group">
+                <label>Judul</label>
+                <input type="text" id="title" placeholder="Contoh: Gaji Bulanan" required>
+            </div>
+
+            <div class="form-group">
+                <label>Tipe</label>
+                <select id="type" required>
+                    <option value="income">Pemasukan</option>
+                    <option value="expense">Pengeluaran</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Nominal</label>
+                <input type="text" id="amount" placeholder="Contoh: 15.000" required>
+            </div>
+
+            <button type="submit" class="btn">Simpan Transaksi</button>
+
+        </form>
+
+    </section>
+
+</div>
+
+<!-- FIX: overlay harus ada di DOM sebelum script.js diload -->
+<div id="overlay" class="overlay hidden"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
